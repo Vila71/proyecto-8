@@ -1,44 +1,44 @@
 
 <?php
 
-try{
-$conn= new PDO('mysql:host=localhost;dbname=proyecto','root','');
-}catch(PDOException $e){
+try {
+    $conn= new PDO('mysql:host=localhost;dbname=proyecto','root','');
+} catch (PDOException $e){
 echo "Error de conexión:".$e->getMessage();
 
 }
 
-if(isset($_POST['id'])){
+if (isset($_POST['id'])) {
 
-    $id=$_POT['id'];
-    $completado=(isset($_POST['completado']))?1:0;
+    $id = $_POST['id'];
+    $completado = (isset($_POST['completado'])) ? 1 : 0;
 
-    $sql="UPDATE tareas SET completado=? WHERE id=?";
-    $sentencia=$conn->prepare($sql);
+    $sql = "UPDATE tareas SET completado=? WHERE id=?";
+    $sentencia = $conn->prepare($sql);
     $sentencia->execute([$completado,$id]);
     
 
 }
 
-if(isset($_POST['agregar_tarea'])){
+if (isset($_POST['agregar_tarea'])) {
 
-    $tarea=($_POST['tarea']);
-    $sql='INSERT INTO tareas (tarea) VALUE(?)';
-    $sentencia= $conn->prepare($sql);
+    $tarea = ($_POST['tarea']);
+    $sql = 'INSERT INTO tareas (tarea) VALUES (?)';
+    $sentencia = $conn->prepare($sql);
     $sentencia->execute([$tarea]);
 
 }
 
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
 
-    $id=$_GET['id'];
-    $sql="DELETE FROM tareas WHERE id=?";
-    $sentencia=$conn->prepare($sql);
+    $id = $_GET['id'];
+    $sql = "DELETE FROM tareas WHERE id=?";
+    $sentencia = $conn->prepare($sql);
     $sentencia->execute([$id]);
 
 }
 
-$sql="SELECT * FROM tareas";
-$registros=$conn->query($sql);
+$sql = "SELECT * FROM tareas";
+$registros = $conn->query($sql);
 
 ?>
