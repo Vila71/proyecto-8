@@ -4,7 +4,7 @@
 try {
     $conn= new PDO('mysql:host=localhost;dbname=proyecto','root','');
 } catch (PDOException $e){
-echo "Error de conexión:".$e->getMessage();
+echo "Error de conexión: " . $e->getMessage();
 
 }
 

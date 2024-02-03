@@ -8,9 +8,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="style.css"> 
-    <style>
-     @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
- </style>
 
 
     <!-- Bootstrap CSS v5.2.1 -->
@@ -47,7 +44,7 @@
                         <li class="list-group-item">
 
                         <form action=""method="post">
-                            <imput type="hidden" name="id" value="<?php echo $registro['id'];?>">
+                            <input type="hidden" name="id" value="<?php echo $registro['id'];?>">
                             <input
                              class="form-check-input float-start" 
                             type="checkbox" 
